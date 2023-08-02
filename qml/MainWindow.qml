@@ -13,6 +13,11 @@ ApplicationWindow {
     height: Screen.height//900
     title: qsTr("Welcome Typing Test");
 
+    Shortcut {
+        sequence: "Ctrl+Q"
+        onActivated: Qt.quit()
+    }
+
     Rectangle {
         anchors.fill: parent
         gradient: Gradient{
@@ -25,7 +30,7 @@ ApplicationWindow {
         id: columnLayout1
         x:  0
         y:  0
-        height: Screen.height
+        height: Screen.height-80
         width:  Screen.width/6
         Rectangle {
             anchors.fill: parent
@@ -36,35 +41,86 @@ ApplicationWindow {
         ColumnLayout{
             id: buttonLayout
             anchors.fill: parent
-            //spacing: 10
+            spacing: 50
+      
+
+            Image {
+                id:     images
+                //x:      10
+                //y:      Screen.height -3*(editButton.height/2)
+                width : 128
+                height: 128
+                source: "./images/images.png"
+            }
 
             Button {
                 id: testButton
                 text: "Test"
-                background: Rectangle { color: "blue" ; radius: 5}
+                background: Rectangle {
+                    color: parent.down ? "#bbbbbb" :
+                        (parent.pressed ? "#000000" : "blue")
+                    radius: 20
+                }
                 palette.buttonText: "white"
-                font.pixelSize: 24
+                //Layout.fillHeight:          true
+                Layout.fillWidth:           true
+                font.pixelSize: 34
+
                 onClicked: {
                     
                 }   
 
             }
-
             Button {
                 id: localTestButton
                 text: "Local Test"
-                background: Rectangle { color: "blue" ; radius: 5}
+                background: Rectangle {
+                    color: parent.down ? "#bbbbbb" :
+                        (parent.pressed ? "#000000" : "blue")
+                    radius: 20
+                }
                 palette.buttonText: "white"
-                font.pixelSize: 24
+                //Layout.fillHeight:          true
+                Layout.fillWidth:           true
+                font.pixelSize: 34
                 onClicked: {
                 }   
             }
             Button {
+                id: englishPractiseButton
+                text: "English Practise"
+                background: Rectangle {
+                    color: parent.down ? "#bbbbbb" :
+                        (parent.pressed ? "#000000" : "blue")
+                    radius: 20
+                }
+                palette.buttonText: "white"
+                //Layout.fillHeight:          true
+                Layout.fillWidth:           true
+                font.pixelSize: 34
+                onClicked: {
+                }   
+            }
+            Button {
+                //y: 100
                 id: quitButton
                 text: "Quit"
-                background: Rectangle { color: "blue" ; radius: 5}
+                background: Rectangle {
+                    color: parent.down ? "#bbbbbb" :
+                        (parent.pressed ? "#000000" : "blue")
+                    radius: 20
+                }
                 palette.buttonText: "white"
-                font.pixelSize: 24
+                //Layout.fillHeight:          true
+                Layout.fillWidth:           true
+                //anchors.bottom: buttonLayout.bottom
+                //anchors.top : parent.top
+                font.pixelSize: 34
+                //Layout.alignment: Qt.AlignBottom //| Qt.AlignHCenter
+                Layout.alignment: Qt.AlignBottom // Align the button to the center horizontally
+                //y: 100
+                anchors.bottom: buttonLayout.bottom
+
                 onClicked: {
                     Qt.quit();
                 }   
@@ -89,17 +145,21 @@ ApplicationWindow {
         
         Rectangle {
             id: loaderRectangle
-            x:  columnLayout1.width +10
-            y:  10
-            height: columnLayout2.height -20
-            width:  columnLayout2.width -20
+            // x:  parent.height/2
+            // y:  parent.wiidth/2
+            //height: columnLayout2.height/5 //-20
+            //width:  columnLayout2.width/5 //-20
+            anchors.fill: parent
             color: "red"
 
             Loader {
                 id: loader
-                //x:  1000//columnLayout2.width/2
-                //y:  1000
-                anchors.fill: parent
+                x:  columnLayout2.width/4
+                y:  10//columnLayout2.height/3
+                //anchors.fill: parent
+                //anchors.CenterIn: parent.CenterIn
+                //anchors.centerIn: parent
+                //anchors.centerIn: parent
                 source: "./Editor.qml"
             } 
         }
