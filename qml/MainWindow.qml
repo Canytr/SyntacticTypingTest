@@ -50,7 +50,9 @@ ApplicationWindow {
                 //y:      Screen.height -3*(editButton.height/2)
                 width : 128
                 height: 128
-                source: "./images/images.png"
+                Layout.fillWidth:           true
+                source: "./images.png"
+
             }
 
             Button {
@@ -150,7 +152,7 @@ ApplicationWindow {
             //height: columnLayout2.height/5 //-20
             //width:  columnLayout2.width/5 //-20
             anchors.fill: parent
-            color: "red"
+            color: "black"
 
             Loader {
                 id: loader

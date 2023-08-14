@@ -110,21 +110,31 @@ Item{
         }
     }
 
-    //Typing
-    Row
-    {
-        width: textArea.width
-    TextField {
-        id: inputField2
-        //y: textArea.height +20
-        height: openButton.height
-        width: 500//editorColumnLayout.width// editorRectangle.width
-        //placeholderText: "Type here"
-        color: "black"
-        //text: fileDialog.file
-        font.pixelSize: 20
     }
-    }
+
+    
+    Rectangle{
+        id: typingRectangle  
+        y:700
+        //height: openButton.height
+        width: 600
+
+        //Typing
+        RowLayout
+        {
+            id:  typingRowLayout
+            anchors.fill : parent
+            
+            TextField {
+                id: typingInputField
+                width: 600//parent.width
+                height: openButton.height
+                placeholderText: "Type here"
+                color: "black"
+                Layout.fillWidth:           true
+                font.pixelSize: 20
+            }
+        }
 
     }
 
