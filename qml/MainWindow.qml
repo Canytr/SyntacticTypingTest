@@ -43,7 +43,6 @@ ApplicationWindow {
             anchors.fill: parent
             spacing: 50
       
-
             Image {
                 id:     images
                 //x:      10
@@ -54,7 +53,6 @@ ApplicationWindow {
                 source: "./images.png"
 
             }
-
             Button {
                 id: testButton
                 text: "Test"

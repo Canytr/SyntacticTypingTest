@@ -162,7 +162,7 @@ Item{
         id: fileDialog
         title: "Open File"
         currentFile: textArea.text
-        nameFilters: [ "GCode (*.gcode)", "All files (*)" ]
+        nameFilters: ["All files (*)"]
         onAccepted:{
             console.log("onAccepted triggered");
             console.log(this.currentFile)
