@@ -67,7 +67,9 @@ ApplicationWindow {
                 font.pixelSize: 34
 
                 onClicked: {
-                    
+                    var component = Qt.createComponent("./TestPage.qml");
+                    var page = component.createObject(stack);
+                    stack.push(page);
                 }   
 
             }
@@ -84,6 +86,9 @@ ApplicationWindow {
                 Layout.fillWidth:           true
                 font.pixelSize: 34
                 onClicked: {
+                    var component = Qt.createComponent("./Editor.qml");
+                    var page = component.createObject(stack);
+                    stack.push(page);
                 }   
             }
             Button {
@@ -99,6 +104,9 @@ ApplicationWindow {
                 Layout.fillWidth:           true
                 font.pixelSize: 34
                 onClicked: {
+                    var component = Qt.createComponent("./EnglishPage.qml");
+                    var page = component.createObject(stack);
+                    stack.push(page);
                 }   
             }
             Button {
@@ -143,7 +151,7 @@ ApplicationWindow {
         // }  
 
         
-        Rectangle {
+        /*Rectangle {
             id: loaderRectangle
             // x:  parent.height/2
             // y:  parent.wiidth/2
@@ -162,6 +170,26 @@ ApplicationWindow {
                 //anchors.centerIn: parent
                 source: "./Editor.qml"
             } 
+        }*/
+        //Stacked Widget
+        StackView {
+            id: stack
+            //height: 600
+            //width: 850
+            anchors.fill: parent
+
+            pushEnter: Transition {}
+            pushExit: Transition {}
+            popEnter: Transition {}
+            popExit: Transition {}
+
+            //anchors.fill: parent
+            initialItem: loader.item
+
+            Loader {
+                id: loader
+                source: "./Editor.qml"
+            }
         }
 
     }
