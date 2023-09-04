@@ -110,6 +110,24 @@ ApplicationWindow {
                 }   
             }
             Button {
+                id: vocabularyGameButton
+                text: "Vocabulary Game"
+                background: Rectangle {
+                    color: parent.down ? "#bbbbbb" :
+                        (parent.pressed ? "#000000" : "blue")
+                    radius: 20
+                }
+                palette.buttonText: "white"
+                //Layout.fillHeight:          true
+                Layout.fillWidth:           true
+                font.pixelSize: 34
+                onClicked: {
+                    var component = Qt.createComponent("./EnglishPage.qml");
+                    var page = component.createObject(stack);
+                    stack.push(page);
+                }   
+            }
+            Button {
                 //y: 100
                 id: quitButton
                 text: "Quit"
@@ -193,6 +211,8 @@ ApplicationWindow {
         }
 
     }
+
+
     ColumnLayout {
         id: columnLayout3
         x:  5*(Screen.width/6)
@@ -202,7 +222,7 @@ ApplicationWindow {
         Rectangle {
             anchors.fill: parent
             color: "#242424"
-        }   
+        }  
     }
 
 }
