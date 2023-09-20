@@ -16,6 +16,7 @@ Item{
         height: 550
         width:  1000
         color: "black"
+        radius: 20
         
         ScrollView {
             id: view
@@ -29,13 +30,18 @@ Item{
                 height: 550
                 width: 1000
                 //placeholderText: qsTr("Enter description")
-                text: "Record sightings of Asian hornets are raising fears of catastrophic consequences for the UK's bee populations for years to come.\n
-                       The invasive hornets are wreaking havoc in mainland Europe and threaten to get a foothold in the UK, with nests found in East Sussex, Kent, Devon and Dorset.\n
+                text: "                      Record sightings of Asian hornets are raising fears of catastrophic\n
+                       consequences for the UK's bee populations for years to come.\n
+                       The invasive hornets are wreaking havoc in mainland Europe and threaten\n
+                       to get a foothold in the UK, with nests found in East Sussex, Kent, Devon\n
+                       and Dorset.\n
                        The insects feed on native bees and wasps, damaging biodiversity.\n
-                       The warning comes as leading scientists release a global report into the threats caused by invasive species.\n
-                       They say the alien invaders play a role in 60% of animal and plant extinctions.\n
-                       And the economic costs have risen to more than £300bn ($380bn) a year across the world.\n"
-
+                       The warning comes as leading scientists release a global report into the\n
+                       threats caused by invasive species. They say the alien invaders play a role\n
+                       in 60% of animal and plant extinctions.And the economic costs have risen\n 
+                       to more than £300bn ($380bn) a year across the world.\n
+                       "
+                       
                 font.pixelSize: 25
                 color: "white"
                 readOnly: true 

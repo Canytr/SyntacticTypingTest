@@ -9,12 +9,14 @@ Item{
 
     id:editorItem
     height: 650
+    //anchors.centerIn: parent
 
     Rectangle{
         //anchors.fill: parent
         height: 600
         width: 600
-        color: "#242424"
+        color: "black"
+        radius: 20
     }
 
     ColumnLayout{
@@ -66,7 +68,7 @@ Item{
         placeholderText: "File Directory"
         color: "black"
         text: fileDialog.file
-        font.pixelSize: 20
+        font.pixelSize: 24
     }
     }
 
@@ -101,8 +103,8 @@ Item{
                     id: cursorHighlight
                     width: textArea.width
                     height: textArea.cursorRectangle.height
-                    color: "blue"
-                    opacity: 0.2
+                    color: "yellow"
+                    opacity: 0.5
                     y: textArea.cursorRectangle.y
                     visible: textArea.activeFocus
                 }

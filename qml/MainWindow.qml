@@ -20,10 +20,11 @@ ApplicationWindow {
 
     Rectangle {
         anchors.fill: parent
-        gradient: Gradient{
-            GradientStop { position: 0.0; color: "#5E5E5E" }
+        /*gradient: Gradient{
+            GradientStop { position: 0.0; color: "#F0F0F0" }
             GradientStop { position: 1.0; color: "#181818" }
-        }
+        }*/
+        color: "#CCE4FF" 
     }   
 
     ColumnLayout {
@@ -34,7 +35,7 @@ ApplicationWindow {
         width:  Screen.width/6
         Rectangle {
             anchors.fill: parent
-            color: "#242424"
+            color: "#CCE4FF"
         } 
 
         
@@ -192,9 +193,11 @@ ApplicationWindow {
         //Stacked Widget
         StackView {
             id: stack
+            x: parent.width/4
+            y: 0
             //height: 600
             //width: 850
-            anchors.fill: parent
+            //anchors.fill: parent
 
             pushEnter: Transition {}
             pushExit: Transition {}
@@ -221,7 +224,7 @@ ApplicationWindow {
         width:  Screen.width/6
         Rectangle {
             anchors.fill: parent
-            color: "#242424"
+            color: "#CCE4FF"
         }  
     }
 
