@@ -4,6 +4,11 @@
 
 int main (int argc, char* argv[])
 {
+    
+    //File manipulation
+    qputenv("QML_XHR_ALLOW_FILE_READ","1");  
+    qputenv("QML_XHR_ALLOW_FILE_WRITE","1");
+
     //environment variables
     
     QApplication app(argc, argv);
@@ -11,10 +16,7 @@ int main (int argc, char* argv[])
     QQmlApplicationEngine engine;
     engine.load(QStringLiteral("qml/MainWindow.qml"));
 
-    //File manipulation
-    qputenv("QML_XHR_ALLOW_FILE_READ","1");  
-    qputenv("QML_XHR_ALLOW_FILE_WRITE","1");
-
+    
 
     return app.exec();
 

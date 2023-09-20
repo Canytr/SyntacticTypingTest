@@ -19,8 +19,8 @@ Item{
 
     Rectangle{
         //anchors.fill: parent
-        height: 600
-        width: 600
+        height: 700
+        width: 800
         color: "black"
         radius: 20
     }
@@ -29,8 +29,8 @@ Item{
     //Editor
     Rectangle{
         id: editorRectangle
-        height: 550
-        width:  600
+        height: 700
+        width:  800
         color: "transparent"
         
         ScrollView {
@@ -47,9 +47,11 @@ Item{
                 //placeholderText: qsTr("Enter description")
                 font.pixelSize: 20
                 color: "white"
+                //readOnly: true
                 onCursorPositionChanged: {
                         cursorHighlight.y = cursorRectangle.y
                 }
+
                 Keys.onPressed: {
                         cursorHighlight.y = cursorRectangle.y
                 }
@@ -65,7 +67,7 @@ Item{
                 }
                 Component.onCompleted: {
                     // Dosyayı okuma işlemi
-                    var file = Qt.resolvedUrl("/home/can/Data/gcode/NC_Program"); // Dosya yolunu belirtin
+                    var file = Qt.resolvedUrl("../../test/TestPageExample.txt"); // Dosya yolunu belirtin
                     var xhr = new XMLHttpRequest();
                     xhr.open("GET", file);
                     xhr.onreadystatechange = function() {
@@ -73,7 +75,7 @@ Item{
                             if (xhr.status === 200) {
                                 textArea.text = xhr.responseText; // Metni TextArea'ya atayın
                             } else {
-                                console.error("Dosya okuma hatası: " + xhr.statusText);
+                                console.error("Read Error: " + xhr.statusText);
                             }
                         }
                     };
@@ -82,6 +84,31 @@ Item{
                 
             }
         }
+    }
+
+    Rectangle{
+        id: typingRectangle  
+        y: 750
+        //height: openButton.height
+        width: 600
+
+        //Typing
+        RowLayout
+        {
+            id:  typingRowLayout
+            anchors.fill : parent
+            
+            TextField {
+                id: typingInputField
+                width: 600//parent.width
+                height: openButton.height
+                placeholderText: "Type here"
+                color: "black"
+                Layout.fillWidth:           true
+                font.pixelSize: 20
+            }
+        }
+
     }
 
 

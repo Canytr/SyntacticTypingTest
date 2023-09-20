@@ -1,0 +1,48 @@
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+#include <chrono>
+#include <string>
+
+using namespace std;
+
+int main() {
+    ifstream file("sample_text.txt"); // Specify the name and path of the sample text file
+
+    if (!file) {
+        cerr << "Sample text file not found!" << endl;
+        return 1;
+    }
+
+    string line;
+    string content;
+
+    while (getline(file, line)) {
+        content += line + '\n';
+    }
+
+    file.close();
+
+    cout << "Typing Test Begins. Start typing the text..." << endl;
+    cout << "----------------------------------------------------" << endl;
+    cout << content << endl;
+    cout << "----------------------------------------------------" << endl;
+
+    string userInput;
+    getline(cin, userInput);
+
+    auto start = chrono::high_resolution_clock::now();
+    
+    if (userInput == content) {
+        auto end = chrono::high_resolution_clock::now();
+        chrono::duration<double> duration = end - start;
+        cout << "Congratulations! Typing test completed." << endl;
+        cout << "Time taken: " << duration.count() << " seconds." << endl;
+        cout << "Speed: " << (content.length() / 5) / (duration.count() / 60) << " words per minute." << endl;
+    } else {
+        cout << "Incorrect input. Please try again." << endl;
+    }
+
+    return 0;
+}

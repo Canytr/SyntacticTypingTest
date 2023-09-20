@@ -20,8 +20,8 @@ Item{
     }
 
     ColumnLayout{
-        id:         editorColumnLayout
-        width:      editorRectangle.width
+        id: editorColumnLayout
+        width: editorRectangle.width
     
     //Menu Bar
     Row {
@@ -67,7 +67,7 @@ Item{
         width: 390  // change later
         placeholderText: "File Directory"
         color: "black"
-        text: fileDialog.file
+        //text: fileDialog.file
         font.pixelSize: 24
     }
     }
@@ -108,7 +108,7 @@ Item{
                     y: textArea.cursorRectangle.y
                     visible: textArea.activeFocus
                 }
-                }
+            }
         }
     }
 

@@ -209,7 +209,7 @@ ApplicationWindow {
 
             Loader {
                 id: loader
-                source: "./Editor.qml"
+                source: "./TestPage.qml"
             }
         }
 
