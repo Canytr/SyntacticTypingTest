@@ -84,7 +84,7 @@ Item{
         id: typingRectangle  
         y:700
         //height: openButton.height
-        width: 600
+                width: 600
 
         //Typing
         RowLayout

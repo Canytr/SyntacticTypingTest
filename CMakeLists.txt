@@ -28,7 +28,8 @@ else()
 endif()
 
 # your source files
-set(SRC_LIST main.cpp)
+set(SRC_LIST main.cpp
+             documenthandler.cpp)
 
 # add an executable based on the project name and source list
 add_executable(${PROJECT_NAME} ${SRC_LIST})

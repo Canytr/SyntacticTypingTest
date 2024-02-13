@@ -3,6 +3,7 @@ import QtQuick.Window 2.2
 import QtQuick.Layouts 1.11
 import QtQuick.Controls 2.5
 import QtQuick.Dialogs 6.2
+import org.sample 1.0
 
 
 Item{
@@ -22,12 +23,12 @@ Item{
     ColumnLayout{
         id: editorColumnLayout
         width: editorRectangle.width
-    
+
     //Menu Bar
     Row {
     spacing: 5
     //x: 150
-    //y: 40   
+    //y: 40
 
     Button{
         id: openButton
@@ -37,7 +38,7 @@ Item{
         font.pixelSize: 24
         onClicked: {
             fileDialog.open()
-        }   
+        }
     }
     Button {
         id: saveButton
@@ -59,7 +60,7 @@ Item{
         font.pixelSize: 24
         onClicked: {
             textArea.text = "";
-        }   
+        }
     }
     TextField {
         id: inputField
@@ -78,11 +79,11 @@ Item{
         height: 550
         width:  600
         color: "transparent"
-        
+
         ScrollView {
             id: view
             width: 600
-            anchors.fill: parent        
+            anchors.fill: parent
             ScrollBar.vertical.policy: ScrollBar.AsNeeded
             ScrollBar.horizontal.policy: ScrollBar.AsNeeded
 
@@ -93,6 +94,7 @@ Item{
                 //placeholderText: qsTr("Enter description")
                 font.pixelSize: 20
                 color: "white"
+                text: documentHandler.text
                 onCursorPositionChanged: {
                         cursorHighlight.y = cursorRectangle.y
                 }
@@ -108,15 +110,16 @@ Item{
                     y: textArea.cursorRectangle.y
                     visible: textArea.activeFocus
                 }
+
             }
         }
     }
 
     }
 
-    
+
     Rectangle{
-        id: typingRectangle  
+        id: typingRectangle
         y:700
         //height: openButton.height
         width: 600
@@ -126,7 +129,7 @@ Item{
         {
             id:  typingRowLayout
             anchors.fill : parent
-            
+
             TextField {
                 id: typingInputField
                 width: 600//parent.width
@@ -169,11 +172,12 @@ Item{
             console.log("onAccepted triggered");
             console.log(this.currentFile)
             inputField.text = this.currentFile
-            textArea.text = editorItem.readFile(this.currentFile); 
+            //textArea.text = editorItem.readFile(this.currentFile);
+            documentHandler.openFile(this.currentFile);
+
         }
 
 
     }
 }
 
-    

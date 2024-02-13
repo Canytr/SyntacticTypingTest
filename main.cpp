@@ -1,6 +1,10 @@
 #include <iostream>
 #include <QApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
+
+//
+#include "documenthandler.h"
 
 int main (int argc, char* argv[])
 {
@@ -12,9 +16,17 @@ int main (int argc, char* argv[])
     //environment variables
     
     QApplication app(argc, argv);
+    DocumentHandler document;
+
+    qmlRegisterType<DocumentHandler>("org.sample", 1, 0, "DocumentHandler");
 
     QQmlApplicationEngine engine;
+
+    engine.rootContext()->setContextProperty("documentHandler", &document);
+    
     engine.load(QStringLiteral("qml/MainWindow.qml"));
+
+
 
     
 
